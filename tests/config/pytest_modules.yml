@@ -2462,6 +2462,10 @@ metaphlan3/metaphlan3:
   - modules/nf-core/metaphlan3/metaphlan3/**
   - tests/modules/nf-core/metaphlan3/metaphlan3/**
 
+metaxa2:
+  - modules/nf-core/metaxa2/**
+  - tests/modules/nf-core/metaxa2/**
+
 methyldackel/extract:
   - modules/nf-core/methyldackel/extract/**
   - tests/modules/nf-core/methyldackel/extract/**

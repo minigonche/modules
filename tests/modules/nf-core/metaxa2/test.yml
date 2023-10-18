@@ -1,0 +1,17 @@
+- name: metaxa2 test_metaxa2_general
+  command: nextflow run ./tests/modules/nf-core/metaxa2 -entry test_metaxa2_general -c ./tests/config/nextflow.config
+  tags:
+    - metaxa2
+  files:
+    - path: outputtest_general.bacteria.fasta
+      md5sum: 08da198de020d7b5bdb42225e1e78e0d
+    - path: outputtest_general.extraction.fasta
+      md5sum: 73c5b55b06f14cf89e1d98837e2e3091
+    - path: outputtest_general.extraction.results
+      md5sum: d1c9225eeac69b64149fcf5e6a685f60
+    - path: outputtest_general.graph
+      md5sum: 1a1ee36dc15fcc2df695287bb1966d60
+    - path: outputtest_general.summary.txt
+      md5sum: c86b92cac2c6bdbd332f4269ce81127b
+    - path: outputtest_general.taxonomy.txt
+      md5sum: 660037d5e276c1baa55d10561d9eee3d

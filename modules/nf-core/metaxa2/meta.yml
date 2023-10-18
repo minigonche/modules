@@ -1,0 +1,80 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/yaml-schema.json
+name: "metaxa2"
+description: Metaxa2 Improved Identification and Taxonomic Classification of Small and Large Subunit rRNA in Metagenomic Data
+keywords:
+  - metaxa
+  - metaxa2
+  - metagenomics
+tools:
+  - "metaxa2":
+      description: "Improved Identification and Taxonomic Classification of Small and Large Subunit rRNA in Metagenomic Data."
+      homepage: "https://microbiology.se/software/metaxa2/"
+      documentation: "https://microbiology.se/publ/metaxa2_users_guide_2.2.pdf"
+      doi: "10.1111/1755-0998.12399"
+      licence: "['GPL v3']"
+
+input:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test']`
+  
+  - i:
+      type: file
+      description: Nucleotide FASTA/FASTQ input file to investigate. Metaxa2 accepts both aligned and unaligned FASTA.
+      pattern: "*.{fasta, fa, fastqc, fq, gzip, zip, bzip, dsrc}"
+  - o:
+      type: string
+      description: Base for the file names of the output files. Suffixes will be added automatically
+  - pairfile:
+      type: file
+      description: OPTIONAL DNA FASTA/FASTQ input file containing the second reads in the read pairs to investigate.
+      pattern: "*.{fasta, fa, fastqc, fq, gzip, zip, bzip, dsrc}"
+      
+output:
+  - meta:
+      type: map
+      description: |
+        Groovy Map containing sample information
+        e.g. `[ id:'test' ]`
+  
+  - versions:
+      type: file
+      description: File containing software versions
+      pattern: "versions.yml"
+
+
+  - summary:
+      type: file
+      description: Summary of results.
+      pattern: "*.summary.txt"
+  - extraction_results:
+      type: file
+      description: Extractions results.
+      pattern: "*.extraction.results"
+  - fasta:
+      type: file
+      description: Matching input sequences grouped by taxa.
+      pattern: "*.fasta"       
+  - graphical:
+      type: file
+      description: Graphical text representations of where in each sequence the conserved domains were found. 
+      pattern: "*.graph"   
+  - table:
+      type: file
+      description: Table format output of results, separately for the HMMER and BLAST output.
+      pattern: "*.{HMMER, BLAST}.table"   
+  - taxonomy:
+      type: file
+      description: Table format output of probable taxonomic origins for the identified SSU/LSU sequences.
+      pattern: "*.taxonomy.txt"   
+  - not_found:
+      type: file
+      description: ist of entries that do not seem to be SSU sequences.
+      pattern: "*._not_found.txt"   
+
+
+authors:
+  - "@minigonche"
